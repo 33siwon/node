@@ -11,8 +11,13 @@ app.use((req,res,next)=>{
   next()
 })
 
+app.use((req,res,next)=>{
+  res.sendFile(path.join(__dirname,'index1.html'))
+  next()
+})
+
 app.get('*', (req,res)=>{
-  console.log('hello every ')
+  res.sendFile(path.join(__dirname,'index1.html'))
 })
 
 app.get('/', (req,res)=>{
@@ -24,7 +29,7 @@ app.post('/', (req,res)=>{
 })
 
 app.get('/about', (req,res)=>{
-  res.sendFile(path.join(__dirname,'index.html'))
+  res.send('hi')
 })
 
 
